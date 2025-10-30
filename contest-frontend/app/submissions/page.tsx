@@ -20,34 +20,48 @@ export default function SubmissionForm() {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-4">
-      <h1 className="text-xl font-bold mb-4">Submit Code</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="number"
-          placeholder="User ID"
-          className="w-full border p-2"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Problem ID"
-          className="w-full border p-2"
-          value={problemId}
-          onChange={(e) => setProblemId(e.target.value)}
-        />
-        <textarea
-          placeholder="Code"
-          className="w-full border p-2"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-        />
-        <button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">
-          Submit
+    <div className="max-w-xl mx-auto mt-16 p-6 bg-white rounded-2xl shadow-lg">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Submit Your Code</h1>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700">User ID</label>
+          <input
+            type="number"
+            placeholder="Enter your User ID"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Problem ID</label>
+          <input
+            type="number"
+            placeholder="Enter the Problem ID"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={problemId}
+            onChange={(e) => setProblemId(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Code</label>
+          <textarea
+            placeholder="Paste your code here"
+            className="w-full border border-gray-300 rounded-lg p-3 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200"
+        >
+          Submit Code
         </button>
       </form>
-      {result && <pre className="mt-4 p-2 bg-gray-100">{result}</pre>}
+      {result && (
+        <pre className="mt-6 p-4 bg-gray-100 rounded-lg text-sm overflow-x-auto">{result}</pre>
+      )}
     </div>
   )
 }

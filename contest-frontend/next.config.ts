@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/:path*',
-        destination: `https://shodhai-backen.onrender.com/:path*`
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`
       }
     ];
   },

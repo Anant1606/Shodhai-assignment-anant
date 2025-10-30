@@ -15,27 +15,38 @@ export default function ProblemForm() {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-4">
-      <h1 className="text-xl font-bold mb-4">Create Problem</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Title"
-          className="w-full border p-2"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <textarea
-          placeholder="Statement"
-          className="w-full border p-2"
-          value={statement}
-          onChange={(e) => setStatement(e.target.value)}
-        />
-        <button type="submit" className="bg-purple-600 text-white px-4 py-2 rounded">
-          Create
+    <div className="max-w-xl mx-auto mt-16 p-6 bg-white rounded-2xl shadow-lg">
+      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Create a New Problem</h1>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Title</label>
+          <input
+            type="text"
+            placeholder="Enter problem title"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700">Statement</label>
+          <textarea
+            placeholder="Enter the problem statement"
+            className="w-full border border-gray-300 rounded-lg p-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+            value={statement}
+            onChange={(e) => setStatement(e.target.value)}
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200"
+        >
+          Create Problem
         </button>
       </form>
-      {result && <pre className="mt-4 p-2 bg-gray-100">{result}</pre>}
+      {result && (
+        <pre className="mt-6 p-4 bg-gray-100 rounded-lg text-sm overflow-x-auto">{result}</pre>
+      )}
     </div>
   )
 }
