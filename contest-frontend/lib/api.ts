@@ -2,7 +2,7 @@
 const buildUrl = (endpoint: string) => {
   // Remove any leading slashes
   const cleanEndpoint = endpoint.replace(/^\/+/, '');
-  return `/api/${cleanEndpoint}`;
+  return `/${cleanEndpoint}`;
 }
 
 export interface ApiResponse<T> {
